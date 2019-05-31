@@ -1,0 +1,4 @@
+Enter the lower boundary of calories: 
+20
+Enter the upper boundary of calories:
+300
