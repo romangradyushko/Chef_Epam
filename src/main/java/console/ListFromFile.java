@@ -1,6 +1,5 @@
 package console;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
@@ -15,6 +14,10 @@ import repository.SaladStorage;
 public class ListFromFile {
 	private static SaladStorage fs = new SaladStorage();
     private static List<Salad> salads = fs.read();
+    
+    /**
+	* method for setting calorie boundaries from file 
+	*/
 	public static void FromFile() throws IOException {		
 		Integer minCalory = 0, maxCalory = 0;
 		FileReader fr= new FileReader("Border.txt");
@@ -39,7 +42,7 @@ public class ListFromFile {
 
         for (Salad salad : salads) {
             List<Ingredient> ingredients = salad.getSalad();
-            System.out.println("\nСалат " + salad.getName() + ":");
+            System.out.println("\nSalad " + salad.getName() + ":");
 
             for (Ingredient ingredient : ingredients) {
                 if (filter1.isSatisfy(ingredient)) {

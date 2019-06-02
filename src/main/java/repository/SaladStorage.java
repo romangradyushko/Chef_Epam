@@ -7,7 +7,9 @@ import java.util.List;
 import domain.Ingredient;
 import domain.Salad;
 
-
+/**
+ * salad storage class
+ */
 public class SaladStorage {
 
     
