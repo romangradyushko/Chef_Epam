@@ -1,8 +1,9 @@
 package domain;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Salad {
+public class Salad implements Serializable {
 	private String name;
     private List<Ingredient> salad;
 
@@ -37,11 +38,4 @@ public class Salad {
         return totalcalory;
     }; 
     
-    double getTotalPrice(){
-		double totalprice = 0;
-        for (Ingredient ingredient : this.salad) {
-        	totalprice += (double) ingredient.getTotalCalory();
-        }
-        return totalprice;
-    };    
 }
