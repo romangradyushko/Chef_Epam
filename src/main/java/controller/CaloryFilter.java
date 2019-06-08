@@ -7,9 +7,10 @@ public class CaloryFilter implements Filter {
     private Integer maxCalory;
 
     public CaloryFilter(final Integer minCalory, final Integer maxCalory) {
-        if (minCalory < 0 || minCalory > maxCalory) {
+        /*if (minCalory < 0 || minCalory > maxCalory) {
             throw new RuntimeException("entered incorrect data");
-        }
+        }*/
+    	
         this.minCalory = minCalory;
         this.maxCalory = maxCalory;
     }

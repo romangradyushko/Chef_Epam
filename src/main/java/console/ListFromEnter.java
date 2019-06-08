@@ -1,5 +1,6 @@
 package console;
 
+import java.util.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,11 +20,29 @@ public class ListFromEnter {
 	public static void FromEnter() {
 		Integer minCalory = 0, maxCalory = 0;
 		final Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the lower boundary of calorie ");
-		minCalory = sc.nextInt();
-        System.out.print("Enter the upper boundary of calorie ");
-        maxCalory = sc.nextInt();
-        sc.close();
+		try {
+			System.out.print("Enter the lower boundary of calorie ");
+			minCalory = sc.nextInt();
+			System.out.print("Enter the upper boundary of calorie ");
+			maxCalory = sc.nextInt();
+			sc.close();
+		}
+		catch(InputMismatchException e) {
+			System.out.print("Enter correct int lower boundary < upper boundary value");
+			System.out.print("Enter the lower boundary of calorie ");
+			minCalory = sc.nextInt();
+			System.out.print("Enter the upper boundary of calorie ");
+			maxCalory = sc.nextInt();
+			sc.close();
+		}
+		catch(RuntimeException e) {
+			System.out.print("Enter correct int lower boundary < upper boundary value");
+			System.out.print("Enter the lower boundary of calorie ");
+			minCalory = sc.nextInt();
+			System.out.print("Enter the upper boundary of calorie ");
+			maxCalory = sc.nextInt();
+			sc.close();
+		}
 		
         
         System.out.print("Vegetables appropriate range of calories");

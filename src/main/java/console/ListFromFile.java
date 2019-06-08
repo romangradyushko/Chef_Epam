@@ -20,7 +20,7 @@ public class ListFromFile {
 	*/
 	public static void FromFile() throws IOException {		
 		Integer minCalory = 0, maxCalory = 0;
-		FileReader fr= new FileReader("Border.txt");
+		FileReader fr = new FileReader("Border.txt");
         Scanner scan = new Scanner(fr);
         while (scan.hasNextLine()) {
         	if(scan.nextLine().contains("Enter the lower boundary of calories")) {
