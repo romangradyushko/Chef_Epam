@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<salads>
+<salad id="1">
+		<name>Vegetables</name>
+			<parameters>
+				<ingredient id = "1">
+					<name_ingredient>Tomato</name_ingredient>
+					<weight>200</weight>
+					<calory>20</calory>
+				</ingredient>
+				<ingredient id = "2">
+					<name_ingredient>Cucumber</name_ingredient>
+					<weight>200</weight>
+					<calory>14</calory>
+				</ingredient>
+				<ingredient id = "2">
+					<name_ingredient>SourCream</name_ingredient>
+					<weight>100</weight>
+					<calory>206</calory>
+				</ingredient>
+			</parameters>
+</salad>
+<salad id="2">
+		<name>Russian</name>
+			<parameters>
+				<ingredient id = "1">
+					<name_ingredient>Sausage</name_ingredient>
+					<weight>200</weight>
+					<calory>257</calory>
+				</ingredient>
+				<ingredient id = "2">
+					<name_ingredient>Peas</name_ingredient>
+					<weight>250</weight>
+					<calory>58</calory>
+				</ingredient>
+				<ingredient id = "4">
+					<name_ingredient>Cucumber</name_ingredient>
+					<weight>200</weight>
+					<calory>14</calory>
+				</ingredient>
+<ingredient id = "1">
+					<name_ingredient>Potato</name_ingredient>
+					<weight>300</weight>
+					<calory>77</calory>
+				</ingredient>
+				<ingredient id = "5">
+					<name_ingredient>Mayo</name_ingredient>
+					<weight>100</weight>
+					<calory>680</calory>
+				</ingredient>
+			</parameters>
+</salad>
+</salads>
