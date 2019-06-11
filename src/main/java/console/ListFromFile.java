@@ -25,7 +25,7 @@ public class ListFromFile {
 	public static void FromFile() throws IOException, ExceptionMinCaloryFilterLessZero {		
 		Integer minCalory = 0, maxCalory = 0;
 		try {
-		FileReader fr= new FileReader(".\\src\\main\\java\\resources\\Border.txt");
+		FileReader fr= new FileReader(".\\src\\main\\resources\\Border.txt");
         Scanner scan = new Scanner(fr);
         while (scan.hasNextLine()) {
         	if(scan.nextLine().contains("Enter the lower boundary of calories")) {

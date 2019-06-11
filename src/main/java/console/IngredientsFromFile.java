@@ -11,7 +11,7 @@ import domain.Ingredient;
 public class IngredientsFromFile {
 	public static void readIngredient() {
 		try {
-	  		File file = new File(".\\src\\main\\java\\resources\\ingredients.txt");
+	  		File file = new File(".\\src\\main\\resources\\ingredients.txt");
 			FileReader fileReader = new FileReader(file);
 			Scanner scan = new Scanner(fileReader);
 			String line;

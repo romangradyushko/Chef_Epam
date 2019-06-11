@@ -30,8 +30,8 @@ public class OrderCalories {
     	try {
 		    System.out.println("\nVegetables are ordered by calorie salad ");
 		    
-		    FileWriter fw = new FileWriter(".\\src\\main\\java\\resources\\Vegetables.txt");    
-		    ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(".\\src\\main\\java\\resources\\VegetablesBinary.dat"));
+		    FileWriter fw = new FileWriter(".\\src\\main\\resources\\Vegetables.txt");    
+		    ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(".\\src\\main\\resources\\VegetablesBinary.dat"));
 		    
 		    for (Salad salad : salads) {
 		        List<Ingredient> ingredients = salad.getSalad();

@@ -23,5 +23,4 @@ public class Ingredient extends Vegetable{
     double getTotalCalory(){
     	return getCalory() * getWeight() / 100;
     };
-    
 }

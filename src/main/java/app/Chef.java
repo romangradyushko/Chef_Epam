@@ -27,7 +27,7 @@ public class Chef {
 		ConsoleList.listOfIngredients();
 		ConsoleList.listOfOrderCalories();
 		ListFromBinaryFile.FromFile();
-		SaladXmlReader.read(".\\src\\main\\java\\resources\\Salad.xml");
+		SaladXmlReader.read(".\\src\\main\\resources\\Salad.xml");
 		FilterByCaloriesDataBase.filterByCalories();
 		InsertIntoDataBase.insertIntoDataBase();
 		DeleteFromDataBase.deleteFromDataBase();

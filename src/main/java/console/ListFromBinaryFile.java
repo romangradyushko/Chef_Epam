@@ -12,7 +12,7 @@ public class ListFromBinaryFile {
 	*/
 	public static void FromFile() throws IOException, ClassNotFoundException {
 		try{
-		ObjectInputStream out = new ObjectInputStream(new FileInputStream(".\\src\\main\\java\\resources\\VegetablesBinary.dat"));
+		ObjectInputStream out = new ObjectInputStream(new FileInputStream(".\\src\\main\\resources\\VegetablesBinary.dat"));
 		Object salad = out.readObject();
 		System.out.println(salad);
 		out.close();
