@@ -9,8 +9,7 @@ import exception.ExceptionMinCaloryFilterLessZero;
 public class ConsoleList {
 
 	/**
-	* method of choosing how to display
-	* a list of salads with total calorie
+	*  display list of salads
 	*/
 	public static void listOfSalads(){
 		PrintMenu.listOfSalads();
