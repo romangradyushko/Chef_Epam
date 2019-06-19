@@ -27,25 +27,27 @@ public class ConsoleList {
         	Integer x = sc.nextInt();
         	switch(x) {
         	case 1: 
-        		ListFromEnter.FromEnter();
+        		ListFromEnter.fromEnter();
         			break;			
         	case 2: 
-        		ListFromFile.FromFile();
+        		ListFromFile.fromFile();
 					break;
         	default:
-        		ListFromEnter.FromEnter();
+        		ListFromEnter.fromEnter();
 					break;
         	}
-        	//sc.close();
         }
         catch(InputMismatchException e) {
-        	ListFromEnter.FromEnter();
+        	ListFromEnter.fromEnter();
         }
 	}  
       
-
 	
+	/**
+	* method print list ingredients of order calories
+	* @throws IOException 
+	*/
 	public static void listOfOrderCalories() throws IOException {
-		OrderCalories.OrderByCalories();
+		OrderCalories.orderByCalories();
 	}
 }

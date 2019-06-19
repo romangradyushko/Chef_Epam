@@ -9,13 +9,14 @@ import domain.Ingredient;
 import domain.Salad;
 import exception.ExceptionMinCaloryFilterLessZero;
 import repository.SaladStorage;
+import console.IngredientsFromFile;
 
 /**
  * salad sorting class based on calories
  */
 public class OrderCalories {
 	private static SaladStorage fs = new SaladStorage();
-    private static List<Salad> salads = fs.read();
+    private static List<Salad> salads = fs.storage();
     
 	static Comparator<Ingredient> comp = new Comparator<Ingredient>() {
         public int compare(Ingredient one, Ingredient two) {
@@ -25,14 +26,15 @@ public class OrderCalories {
 
     /**
 	* method order ingredient by calories and write into txt and binary file  
+     * @throws IOException 
 	*/
-    public static void OrderByCalories() {
+    public static void orderByCalories() throws IOException {
+    	FileWriter fw = null;
+    	ObjectOutputStream out = null;
     	try {
-		    System.out.println("\nVegetables are ordered by calorie salad ");
-		    
-		    FileWriter fw = new FileWriter(".\\src\\main\\resources\\Vegetables.txt");    
-		    ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(".\\src\\main\\resources\\VegetablesBinary.dat"));
-		    
+		    System.out.println("\nVegetables are ordered by calorie salad ");		    
+		    fw = new FileWriter(".\\src\\main\\resources\\Vegetables.txt");    
+		    out = new ObjectOutputStream(new FileOutputStream(".\\src\\main\\resources\\VegetablesBinary.dat"));
 		    for (Salad salad : salads) {
 		        List<Ingredient> ingredients = salad.getSalad();
 		        Collections.sort(ingredients, comp);
@@ -42,17 +44,16 @@ public class OrderCalories {
 		        for (Ingredient ingredient : ingredients) {
 		            System.out.println(ingredient.getName() + " - " + ingredient.getCalory());
 		            fw.write(ingredient.getName() + " - " + ingredient.getCalory() + "\n");
-		            out.writeObject(ingredient.getName() + " - " + ingredient.getCalory() + "\n");
-		
+		            out.writeObject(ingredient.getName() + " - " + ingredient.getCalory() + "\n");		
 		        }
-		    }
-		    out.close();
-		    fw.close();
+		    }    		   
     	}
     	catch(IOException e) {
     		System.out.println("File not available");
     	}
-     
-    
+    	finally {
+    		out.close();
+		    fw.close();
+    	}    
     }
 }

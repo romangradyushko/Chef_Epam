@@ -10,15 +10,18 @@ public class ListFromBinaryFile {
 	/**
 	* method of deserialization 
 	*/
-	public static void FromFile() throws IOException, ClassNotFoundException {
+	public static void fromFile() throws IOException, ClassNotFoundException {
+		ObjectInputStream out = null;
 		try{
-		ObjectInputStream out = new ObjectInputStream(new FileInputStream(".\\src\\main\\resources\\VegetablesBinary.dat"));
+		out = new ObjectInputStream(new FileInputStream(".\\src\\main\\resources\\VegetablesBinary.dat"));
 		Object salad = out.readObject();
 		System.out.println(salad);
-		out.close();
 		}
 		catch(FileNotFoundException e) {
 			System.out.println("Sorry, but file with object not found");
+		}
+		finally {
+			out.close();
 		}
 	}
 }

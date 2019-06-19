@@ -4,10 +4,7 @@ import collectionTest.ArrayvsLinked;
 import console.ConsoleList;
 import console.IngredientsFromFile;
 import console.ListFromBinaryFile;
-import logic.DeleteFromDataBase;
-import logic.FilterByCaloriesDataBase;
-import logic.InsertIntoDataBase;
-import logic.UpdateDataBase;
+import logic.DataBaseCRUD;
 import xml.SaladXmlReader;
 
 /**
@@ -26,11 +23,11 @@ public class Chef {
 		ConsoleList.listOfSalads();
 		ConsoleList.listOfIngredients();
 		ConsoleList.listOfOrderCalories();
-		ListFromBinaryFile.FromFile();
+		ListFromBinaryFile.fromFile();
 		SaladXmlReader.read(".\\src\\main\\resources\\Salad.xml");
-		FilterByCaloriesDataBase.filterByCalories();
-		InsertIntoDataBase.insertIntoDataBase();
-		DeleteFromDataBase.deleteFromDataBase();
-		UpdateDataBase.updateDataBase();
+		DataBaseCRUD.filterByCalories();
+		DataBaseCRUD.insertIntoDataBase();
+		DataBaseCRUD.updateDataBase();
+		DataBaseCRUD.deleteFromDataBase();
 	}
 }

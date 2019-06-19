@@ -12,21 +12,25 @@ import exception.ExceptionMinCaloryFilterLessZero;
 import logic.CaloryFilter;
 import logic.Filter;
 import repository.SaladStorage;
+import console.ListFromEnter;
 
 public class ListFromFile {
 	private static SaladStorage fs = new SaladStorage();
-    private static List<Salad> salads = fs.read();
-    
+    private static List<Salad> salads = fs.storage();
+    static Integer minCalory = 0;
+	static Integer maxCalory = 0;
+	
     /**
 	* method for setting calorie boundaries from file 
-     * @throws IOException 
-     * @throws ExceptionMinCaloryFilterLessZero 
-	*/
-	public static void FromFile() throws IOException, ExceptionMinCaloryFilterLessZero {		
-		Integer minCalory = 0, maxCalory = 0;
+    * @throws IOException 
+    * @throws ExceptionMinCaloryFilterLessZero 
+	*/	
+    private static void boundaryFromFile() throws IOException, ExceptionMinCaloryFilterLessZero{
+		Scanner scan = null;
+		FileReader fr = null;
 		try {
-		FileReader fr= new FileReader(".\\src\\main\\resources\\Border.txt");
-        Scanner scan = new Scanner(fr);
+		fr = new FileReader(".\\src\\main\\resources\\Border.txt");
+        scan = new Scanner(fr);
         while (scan.hasNextLine()) {
         	if(scan.nextLine().contains("Enter the lower boundary of calories")) {
         		minCalory = Integer.valueOf(scan.nextLine());
@@ -38,17 +42,35 @@ public class ListFromFile {
         		System.out.println(maxCalory);
         	}
         }
-        fr.close();
-        scan.close();
+		}
+        catch(FileNotFoundException e) {
+    		System.out.println("File Border.txt not found. Please, choose other way enter border");
+    		ConsoleList.listOfIngredients();
+    	}
+    	finally {
+    		scan.close();
+    		fr.close();
+    	}
         System.out.print("Vegetables appropriate range of calories");
-
+	}
         
-       Filter filter1 = new CaloryFilter(minCalory, maxCalory);
-
+    /**
+	*  method of print ingredients inside the borders 
+    * @throws IOException 
+    * @throws ExceptionMinCaloryFilterLessZero 
+	*/	
+    public static void fromFile() throws ExceptionMinCaloryFilterLessZero {
+    	try {
+			boundaryFromFile();
+		} catch (IOException e) {
+			ListFromEnter.fromEnter();
+		} catch (ExceptionMinCaloryFilterLessZero e) {
+			ListFromEnter.fromEnter();
+		}
+    	Filter filter1 = new CaloryFilter(minCalory, maxCalory);
         for (Salad salad : salads) {
             List<Ingredient> ingredients = salad.getSalad();
             System.out.println("\nSalad " + salad.getName() + ":");
-
             for (Ingredient ingredient : ingredients) {
                 if (filter1.isSatisfy(ingredient)) {
                     System.out.println(ingredient.getName());
@@ -56,9 +78,4 @@ public class ListFromFile {
             }
         }
 	}
-	catch(FileNotFoundException e) {
-		System.out.println("File Border.txt not found. Please, choose other way enter border");
-		ConsoleList.listOfIngredients();
-	}
-}
 }

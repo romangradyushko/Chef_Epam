@@ -12,7 +12,7 @@ public class Ingredient extends Vegetable{
     public void setWeight(double weight) {
         this.weight = weight;
     }
-
+    
     public Ingredient() {}
 
     public Ingredient(String name, int calory, double weight) {

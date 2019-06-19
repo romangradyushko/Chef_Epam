@@ -1,40 +1,59 @@
 package console;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import domain.Ingredient;
+//import exception.ExceptionMinCaloryFilterLessZero;
 
 
 public class IngredientsFromFile {
+	
+	/**
+	* 
+	* method of read from file  
+	*/
 	public static void readIngredient() {
+		List<Ingredient> Ingredients2 = new ArrayList<>();
+		Scanner scan = null;
+		String line, name = "";
+		double weight = 0;
+		int calory = 0;
 		try {
-	  		File file = new File(".\\src\\main\\resources\\ingredients.txt");
+			File file = new File(".\\src\\main\\resources\\ingredients.txt");
 			FileReader fileReader = new FileReader(file);
-			Scanner scan = new Scanner(fileReader);
-			String line;
-			Ingredient nameingredient = new Ingredient();
+			scan = new Scanner(fileReader);
 			while (scan.hasNextLine()) {
 				line = scan.nextLine();
-	        	if(line.contains("Name")) {
-	        		nameingredient.setName(scan.nextLine());	
+	        	if(line.contains("Name")) {	
+	        		name = scan.nextLine();
 	        	}
 	        	if(line.contains("Weight")) {
-	        		nameingredient.setWeight(Double.valueOf(scan.nextLine()));
+	        		weight = scan.nextDouble();
 	        	}
 	        	if(line.contains("Calory")) {
-	        		nameingredient.setCalory(Integer.valueOf(scan.nextLine()));
+	        		calory = scan.nextInt();
+	        		Ingredients2.add(new Ingredient(name, calory, weight));
 	        	}
+			}	
+			for(Ingredient ingredient : Ingredients2) {
+				System.out.println("Ingredient object from txt file:\n"  +
+    					ingredient.getName() + " " + ingredient.getWeight() + " g " + ingredient.getCalory() + " calory");
 			}
-			System.out.println("Ingredient object from txt file:\n"  +
-					nameingredient.getName() + " " + nameingredient.getWeight() + " g " + nameingredient.getCalory() + " calory");
-				
-			scan.close();	
-				  		}
-				      catch(IOException ex) {
-				  			ex.printStackTrace();
-				  		}
+		}
+		catch(FileNotFoundException e) {
+			System.out.println("Sorry, but file with ingredients not found");
+		}
+		catch(IOException ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			scan.close();
+		}
 	}
 }
