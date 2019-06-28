@@ -13,30 +13,19 @@ import domain.Salad;
 public class SaladStorage {
 
     
-    public List<Salad> read() {
+    public List<Salad> storage() {
         List<Salad> salads = new ArrayList<>();
         // salad #1
         Salad firstSalad = new Salad();
         firstSalad.setName("Vegetables");
         List<Ingredient> firstIngredients = new ArrayList<>();
-        Ingredient firstingredient1 = new Ingredient();
-        firstingredient1.setName("Tomato");
-        firstingredient1.setWeight(200);
-        firstingredient1.setCalory(20);
+        
+        Ingredient firstingredient1 = new Ingredient("Tomato", 20, 200);        
         firstIngredients.add(firstingredient1);
-
-        Ingredient firstingredient2 = new Ingredient();
-        firstingredient2.setName("Cucumber");
-        firstingredient2.setWeight(200);
-        firstingredient2.setCalory(14);
+        Ingredient firstingredient2 = new Ingredient("Cucumber", 14, 200);
         firstIngredients.add(firstingredient2);
-
-        Ingredient firstingredient3 = new Ingredient();
-        firstingredient3.setName("SourCream");
-        firstingredient3.setWeight(100);
-        firstingredient3.setCalory(206);
+        Ingredient firstingredient3 = new Ingredient("SourCream", 206, 100);
         firstIngredients.add(firstingredient3);
-
         
         firstSalad.setSalad(firstIngredients);
         salads.add(firstSalad);
@@ -45,34 +34,16 @@ public class SaladStorage {
         Salad secondSalad = new Salad();
         secondSalad.setName("Russian");
         List<Ingredient> secondIngredients = new ArrayList<>();
-        Ingredient secondIngredient1 = new Ingredient();
-        secondIngredient1.setName("Sausage");
-        secondIngredient1.setWeight(200);
-        secondIngredient1.setCalory(257);
+        
+        Ingredient secondIngredient1 = new Ingredient("Sausage", 257, 200);
         secondIngredients.add(secondIngredient1);
-        
-        Ingredient secondIngredient2 = new Ingredient();
-        secondIngredient2.setName("Peas");
-        secondIngredient2.setWeight(250);
-        secondIngredient2.setCalory(58);
+        Ingredient secondIngredient2 = new Ingredient("Peas", 58, 250);
         secondIngredients.add(secondIngredient2);
-        
-        Ingredient secondIngredient3 = new Ingredient();
-        secondIngredient3.setName("Cucumber");
-        secondIngredient3.setWeight(200);
-        secondIngredient3.setCalory(14);
+        Ingredient secondIngredient3 = new Ingredient("Cucumber", 14, 200);
         secondIngredients.add(secondIngredient3);
-        
-        Ingredient secondIngredient4 = new Ingredient();
-        secondIngredient4.setName("Potato");
-        secondIngredient4.setWeight(300);
-        secondIngredient4.setCalory(77);
+        Ingredient secondIngredient4 = new Ingredient("Potato", 77, 300);
         secondIngredients.add(secondIngredient4);
-        
-        Ingredient secondIngredient5 = new Ingredient();
-        secondIngredient5.setName("Mayo");
-        secondIngredient5.setWeight(100);
-        secondIngredient5.setCalory(680);
+        Ingredient secondIngredient5 = new Ingredient("Mayo", 680, 100);
         secondIngredients.add(secondIngredient5);
         
         secondSalad.setSalad(secondIngredients);

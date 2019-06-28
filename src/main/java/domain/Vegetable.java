@@ -3,8 +3,8 @@ package domain;
 import domain.Vegetable;
 
 public abstract class Vegetable implements Comparable<Vegetable> {
-	private String name;
-    private int calory;
+	protected String name;
+    protected int calory;
 
     public String getName() {
         return name;
